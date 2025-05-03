@@ -14,7 +14,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.14.4"
+    "@parcel/transformer-sass": "^2.14.4",
+    "parcel": "^2.14.4",
+    "sass": "^1.87.0"
   },
   "dependencies": {
     "gh-pages": "^6.3.0"

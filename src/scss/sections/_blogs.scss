@@ -1,0 +1,65 @@
+.blogs {
+  margin-top: 2.5rem;
+
+  &__post {
+    background: linear-gradient(145deg, #1f1f30, #2b2b3d);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: $transition;
+    border-left: 4px solid $accent-color;
+
+    &:hover {
+      border-left-color: $accent-hover;
+    }
+  }
+
+  &__title {
+    color: $accent-color;
+    margin-top: 0;
+  }
+
+  &__text {
+    color: $text-color;
+  }
+
+  &__actions {
+    padding-top: 1rem;
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    color: $accent-color;
+    padding: 0.4rem 1rem;
+    height: 35px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: $transition;
+
+    &:hover {
+      background-color: $accent-color;
+      color: $bg-color;
+      transform: translateY(-1px);
+    }
+
+    &--like, &--dislike {
+      border-color: $accent-color;
+      color: $accent-color;
+      background-color: transparent;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: $transition;
+      
+      &:hover {
+        background-color: $accent-color;
+        color: $bg-color;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
