@@ -1,14 +1,28 @@
 .blogs {
   margin-top: 2.5rem;
 
+&__container {
+  position: relative;
+  height: 181px;
+}
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
   &__post {
+    position: absolute;
+    top: 0;
+    left: 0;
     background: linear-gradient(145deg, #1f1f30, #2b2b3d);
-    padding: 1.5rem;
+    padding: 24px;
+    width: 100%;
+    z-index: 2;
     border-radius: 10px;
-    margin-bottom: 2rem;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     transition: $transition;
-    border-left: 4px solid $accent-color;
 
     &:hover {
       border-left-color: $accent-hover;
@@ -17,6 +31,14 @@
 
   &__title {
     color: $accent-color;
+    line-height: 32px;
+    margin-top: 0;
+  }
+
+  &__author {
+    color: $text-color;
+    font-size: 18px;
+    line-height: 24px;
     margin-top: 0;
   }
 
@@ -26,18 +48,23 @@
 
   &__actions {
     padding-top: 1rem;
+    display: flex;
+    gap: 10px;
   }
 
   &__btn {
     background-color: transparent;
     border: 2px solid $accent-color;
     color: $accent-color;
-    padding: 0.4rem 1rem;
+    padding: 0 15px;
+    @include flexbox;
+    gap: 8px;
     height: 35px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
     transition: $transition;
+    fill: $accent-color;
 
     &:hover {
       background-color: $accent-color;
@@ -45,7 +72,8 @@
       transform: translateY(-1px);
     }
 
-    &--like, &--dislike {
+    &--like,
+    &--dislike {
       border-color: $accent-color;
       color: $accent-color;
       background-color: transparent;
@@ -54,12 +82,243 @@
       cursor: pointer;
       font-weight: bold;
       transition: $transition;
-      
+      fill: $accent-color;
+
       &:hover {
         background-color: $accent-color;
         color: $bg-color;
         transform: translateY(-1px);
       }
     }
+
+    &--comment--clicked {
+      background-color: $accent-color;
+      color: $bg-color;
+      fill: $bg-color;
+    }
   }
+
+  &__likesvg {
+    width: 18px;
+    height: 18px;
+    fill: $accent-color;
+    transition: $transition;
+  }
+
+  &__dislikesvg {
+    width: 18px;
+    height: 18px;
+    fill: $accent-color;
+    transform: rotate(180deg);
+    transition: $transition;
+  }
+
+  &__commentsvg {
+    width: 18px;
+    height: 18px;
+    fill: inherit;
+    transition: $transition;
+  }
+
+  &__editsvg {
+    width: 18px;
+    height: 18px;
+    fill: $accent-color;
+    transition: $transition;
+  }
+
+  &__deletesvg {
+     width: 18px;
+    height: 18px;
+    fill: $accent-color;
+    transition: $transition;
+  }
+
+  &__btn:hover &__likesvg,
+  &__btn:hover &__dislikesvg,
+  &__btn:hover &__commentsvg,
+  &__btn:hover &__editsvg,
+   &__btn:hover &__deletesvg  {
+    fill: $bg-color;
+  }
+
+  &__comments {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 18px 10px 10px;
+    background: linear-gradient(0deg, #1f1f30, #4b4b71);
+    width: 1228;
+    border-radius: 0 0 10px 10px;
+    @include flexbox;
+    justify-content: start;
+    gap: 10px;
+    flex-direction: column;
+    border-bottom: 4px solid $accent-color;
+    transform: translate(0,53px);
+    z-index: 1;
+    transition: $transition;
+    max-height: 100px;
+    overflow: hidden;
+  }
+
+  &__comment {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: calc(100% - 20px);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  &__add {
+   background-color: transparent;
+  border: 2px solid $accent-color;
+  color: $accent-color;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  width: calc(100% + 44px);
+  transition: $transition;
+  margin-top: 30px;
+  margin-bottom: 100px;
+
+      &:hover {
+        background-color: $accent-color;
+        color: $bg-color;
+        transform: translateY(-1px);
+      }
+  }
+}
+
+.comments--down {
+  transform: translate(0, 170px);
+  transition: $transition;
+  overflow: scroll;
+    max-height: 400px;
+   overflow-x: hidden;
+}
+
+.blogs__comments::-webkit-scrollbar {
+  width: 8px;
+}
+
+.blogs__comments::-webkit-scrollbar-track {
+  background: #1f1f30; // or any darker background
+  border-radius: 10px;
+}
+
+.blogs__comments::-webkit-scrollbar-thumb {
+  background-color: $accent-color;
+  border-radius: 10px;
+  border: 2px solid #1f1f30; // creates spacing between track and thumb
+}
+
+.blogs__comments::-webkit-scrollbar-thumb:hover {
+  background-color: $accent-hover;
+}
+
+.post-down {
+    transition: $transition;
+}
+
+.add {
+  &__backdrop {
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+   @include flexbox;
+  }
+
+ &__modal {
+  background-color: #282843;
+  height: 450px;
+  width: 650px;
+  border-radius: 20px;
+ }
+}
+
+.add__title {
+  color: $accent-color;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add__modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(145deg, #1f1f30, #2b2b3d);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.add__modal input,
+.add__modal textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 2px solid $accent-color;
+  background-color: transparent;
+  color: $text-color;
+  font-size: 16px;
+}
+
+.add__modal textarea {
+  height: 180px;
+  resize: vertical;
+}
+
+.add__buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.add__buttons button {
+  background-color: transparent;
+  border: 2px solid $accent-color;
+  color: $accent-color;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 300px;
+  transition: $transition;
+}
+
+.add__buttons button:hover {
+  background-color: $accent-color;
+  color: $bg-color;
+  transform: translateY(-1px);
+}
+
+#postText::-webkit-scrollbar {
+  width: 8px;
+}
+
+#postText::-webkit-scrollbar-track {
+  background: #1f1f30; // or any darker background
+  border-radius: 10px;
+}
+
+#postText::-webkit-scrollbar-thumb {
+  background-color: $accent-color;
+  border-radius: 10px;
+  border: 2px solid #1f1f30; // creates spacing between track and thumb
+}
+
+#postText::-webkit-scrollbar-thumb:hover {
+  background-color: $accent-hover;
+}
+
+.is-hidden {
+  display: none;
 }
