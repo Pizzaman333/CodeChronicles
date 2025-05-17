@@ -51,7 +51,7 @@ body {
   }
 }
 
-header {
+.header {
   z-index: 10;
   background-color: #1e1e2f;
   padding: 1.2rem 0;
@@ -60,20 +60,27 @@ header {
   box-shadow: 0 4px 10px #0000004d;
 }
 
-header .container {
+.header .container {
   justify-content: space-between;
   align-items: center;
   display: flex;
 }
 
-header h1 {
+.header h1 {
   letter-spacing: 1px;
   color: #00bcd4;
   margin: 0;
   font-size: 1.8rem;
 }
 
-header .signup-btn {
+.header__wrap {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  display: flex;
+}
+
+.header__btn {
   color: #12121a;
   cursor: pointer;
   background-color: #00bcd4;
@@ -85,10 +92,162 @@ header .signup-btn {
   box-shadow: 0 2px 6px #00bcd466;
 }
 
-header .signup-btn:hover {
+.header__btn:hover {
   color: #00bcd4;
   background-color: #0000;
   border: 2px solid #00bcd4;
+}
+
+.login__backdrop {
+  z-index: 11;
+  background-color: #0009;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.login__form {
+  background-color: #282843;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 650px;
+  height: 450px;
+  display: flex;
+}
+
+.login__title {
+  color: #00bcd4;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.login__input {
+  color: #f0f0f0;
+  background-color: #0000;
+  border: 2px solid #00bcd4;
+  border-radius: 8px;
+  width: 400px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.login__btn {
+  color: #00bcd4;
+  cursor: pointer;
+  background-color: #0000;
+  border: 2px solid #00bcd4;
+  border-radius: 8px;
+  width: 424px;
+  height: 42px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all .3s;
+}
+
+.login__btn:hover {
+  color: #12121a;
+  background-color: #00bcd4;
+  transform: translateY(-1px);
+}
+
+.login__text {
+  color: #00bcd4;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.login__link {
+  color: #0075d4;
+}
+
+.login__link:hover {
+  text-decoration: underline;
+}
+
+.register__backdrop {
+  z-index: 11;
+  background-color: #0009;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.register__form {
+  background-color: #282843;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 650px;
+  height: 450px;
+  display: flex;
+}
+
+.register__title {
+  color: #00bcd4;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.register__input {
+  color: #f0f0f0;
+  background-color: #0000;
+  border: 2px solid #00bcd4;
+  border-radius: 8px;
+  width: 400px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.register__btn {
+  color: #00bcd4;
+  cursor: pointer;
+  background-color: #0000;
+  border: 2px solid #00bcd4;
+  border-radius: 8px;
+  width: 424px;
+  height: 42px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all .3s;
+}
+
+.register__btn:hover {
+  color: #12121a;
+  background-color: #00bcd4;
+  transform: translateY(-1px);
+}
+
+.register__text {
+  color: #00bcd4;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.register__link {
+  color: #0075d4;
+}
+
+.register__link:hover {
+  text-decoration: underline;
 }
 
 .blogs {
@@ -187,23 +346,23 @@ header .signup-btn:hover {
   transform: translateY(-1px);
 }
 
-.blogs__btn--comment--clicked {
+.blogs__btn--clicked {
   color: #12121a;
   fill: #12121a;
   background-color: #00bcd4;
 }
 
 .blogs__likesvg {
-  fill: #00bcd4;
   width: 18px;
   height: 18px;
+  fill: inherit;
   transition: all .3s;
 }
 
 .blogs__dislikesvg {
-  fill: #00bcd4;
   width: 18px;
   height: 18px;
+  fill: inherit;
   transition: all .3s;
   transform: rotate(180deg);
 }
@@ -272,6 +431,10 @@ header .signup-btn:hover {
   color: #12121a;
   background-color: #00bcd4;
   transform: translateY(-1px);
+}
+
+.blogs__add__down {
+  transition: all .3s;
 }
 
 .comments--down {
