@@ -8,7 +8,7 @@ export const createPostsList = (posts) =>
       <li class="blogs__container">
       <div class="blogs__post">
               <h2 class="blogs__title">${post.title}</h2>
-              <h3 class="blogs__author">By ${post.account}</h3>
+              <h3 class="blogs__author">By <span>${post.account}</span></h3>
               <p class="blogs__text">
                ${post.text}
               </p>
@@ -49,16 +49,6 @@ export const createPostsList = (posts) =>
                     </svg>
                     Comments <span>${post.comments.length}</span>
                   </button>
-                  <button class="blogs__btn blogs__btn--edit">
-                 <svg
-                      class="blogs__editsvg"
-                      viewBox="0 0 32 32"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-<path d="M27 0c2.761 0 5 2.239 5 5 0 1.126-0.372 2.164-1 3l-2 2-7-7 2-2c0.836-0.628 1.874-1 3-1zM2 23l-2 9 9-2 18.5-18.5-7-7-18.5 18.5zM22.362 11.362l-14 14-1.724-1.724 14-14 1.724 1.724z"></path>
-
-                    </svg>
-                  Edit</button>
 <button class="blogs__btn blogs__btn--delete">
 <svg
                       class="blogs__deletesvg"

@@ -1,4 +1,4 @@
-export const addPostAPI = async (psotData) => {
+export const addPostAPI = async (postData) => {
   try {
     const response = await fetch(
       "https://681f2acf72e59f922ef56c3a.mockapi.io/codechronicles/posts",
@@ -7,7 +7,7 @@ export const addPostAPI = async (psotData) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(psotData),
+        body: JSON.stringify(postData),
       }
     );
     return await response.json();

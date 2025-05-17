@@ -1,10 +1,10 @@
 .blogs {
   margin-top: 2.5rem;
 
-&__container {
-  position: relative;
-  height: 181px;
-}
+  &__container {
+    position: relative;
+    height: 181px;
+  }
 
   &__posts {
     display: flex;
@@ -91,7 +91,7 @@
       }
     }
 
-    &--comment--clicked {
+    &--clicked {
       background-color: $accent-color;
       color: $bg-color;
       fill: $bg-color;
@@ -101,14 +101,14 @@
   &__likesvg {
     width: 18px;
     height: 18px;
-    fill: $accent-color;
+    fill: inherit;
     transition: $transition;
   }
 
   &__dislikesvg {
     width: 18px;
     height: 18px;
-    fill: $accent-color;
+    fill: inherit;
     transform: rotate(180deg);
     transition: $transition;
   }
@@ -128,7 +128,7 @@
   }
 
   &__deletesvg {
-     width: 18px;
+    width: 18px;
     height: 18px;
     fill: $accent-color;
     transition: $transition;
@@ -138,7 +138,7 @@
   &__btn:hover &__dislikesvg,
   &__btn:hover &__commentsvg,
   &__btn:hover &__editsvg,
-   &__btn:hover &__deletesvg  {
+  &__btn:hover &__deletesvg {
     fill: $bg-color;
   }
 
@@ -155,7 +155,7 @@
     gap: 10px;
     flex-direction: column;
     border-bottom: 4px solid $accent-color;
-    transform: translate(0,53px);
+    transform: translate(0, 53px);
     z-index: 1;
     transition: $transition;
     max-height: 100px;
@@ -170,23 +170,27 @@
   }
 
   &__add {
-   background-color: transparent;
-  border: 2px solid $accent-color;
-  color: $accent-color;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  width: calc(100% + 44px);
-  transition: $transition;
-  margin-top: 30px;
-  margin-bottom: 100px;
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    color: $accent-color;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: calc(100% + 44px);
+    transition: $transition;
+    margin-top: 30px;
+    margin-bottom: 100px;
 
-      &:hover {
-        background-color: $accent-color;
-        color: $bg-color;
-        transform: translateY(-1px);
-      }
+    &:hover {
+      background-color: $accent-color;
+      color: $bg-color;
+      transform: translateY(-1px);
+    }
+
+    &__down {
+  transition: $transition;
+  }
   }
 }
 
@@ -194,8 +198,8 @@
   transform: translate(0, 170px);
   transition: $transition;
   overflow: scroll;
-    max-height: 400px;
-   overflow-x: hidden;
+  max-height: 400px;
+  overflow-x: hidden;
 }
 
 .blogs__comments::-webkit-scrollbar {
@@ -218,7 +222,7 @@
 }
 
 .post-down {
-    transition: $transition;
+  transition: $transition;
 }
 
 .add {
@@ -230,15 +234,15 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-   @include flexbox;
+    @include flexbox;
   }
 
- &__modal {
-  background-color: #282843;
-  height: 450px;
-  width: 650px;
-  border-radius: 20px;
- }
+  &__modal {
+    background-color: #282843;
+    height: 450px;
+    width: 650px;
+    border-radius: 20px;
+  }
 }
 
 .add__title {
